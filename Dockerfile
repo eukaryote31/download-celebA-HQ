@@ -6,12 +6,12 @@ RUN apt-get update \
 
 RUN conda install jpeg=8d tqdm requests pillow==3.1.1 urllib3 numpy cryptography scipy
 
-RUN pip install opencv-python==3.4.0.12 cryptography==2.1.4
+RUN pip install opencv-python==3.4.0.12 cryptography==2.1.4 kaggle
 
 COPY . /workspace
 
 WORKDIR /data
 
-CMD python /workspace/download_celebA.py ./ && \
+CMD kaggle datasets download -d jessicali9530/celeba-dataset && \
     python /workspace/download_celebA_HQ.py ./ && \
     python /workspace/make_HQ_images.py ./
