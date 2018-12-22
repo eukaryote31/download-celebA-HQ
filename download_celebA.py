@@ -38,7 +38,7 @@ def download(url, target_dir, filename=None):
     if filename is None:
         filename = url_filename(url)
     filepath = os.path.join(target_dir, filename)
-    urlretrieve(url, filepath)
+ #   urlretrieve(url, filepath)
     return filepath
 
 
